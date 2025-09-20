@@ -359,7 +359,7 @@ export const reservationProperties: INodeProperties[] = [
 	},
 	{
 		displayName: 'Patch Operations reservation',
-		name: 'patchOperationsreservation',
+		name: 'patchOperationsReservation',
 		type: 'string',
 		default: `[
 			{
