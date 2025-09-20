@@ -360,7 +360,7 @@ export const reservationProperties: INodeProperties[] = [
 	{
 		displayName: 'Patch Operations reservation',
 		name: 'patchOperationsreservation',
-		type: 'json',
+		type: 'string',
 		default: `[
 			{
 				"op": "replace",
