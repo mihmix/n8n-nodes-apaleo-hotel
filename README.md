@@ -106,3 +106,12 @@ If you encounter any issues or have feature requests, please open an issue in th
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+
+### npm publish
+
+```
+npm whoami
+npm login
+npm publish
+```
