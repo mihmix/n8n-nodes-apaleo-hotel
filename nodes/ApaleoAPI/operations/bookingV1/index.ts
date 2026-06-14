@@ -3,5 +3,7 @@ export * from './blockOperations';
 export * from './bookingOperations';
 export * from './groupOperations';
 export * from './offerOperations';
+export * from './paymentAccountActionOperations';
+export * from './paymentAccountOperations';
 export * from './reservationActionOperations';
 export * from './reservationOperations';

@@ -3,5 +3,7 @@ export * from './blockProperties';
 export * from './bookingProperties';
 export * from './groupProperties';
 export * from './offerProperties';
+export * from './paymentAccountActionProperties';
+export * from './paymentAccountProperties';
 export * from './reservationActionProperties';
 export * from './reservationProperties';

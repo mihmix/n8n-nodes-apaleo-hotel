@@ -7,6 +7,8 @@ import { blockActionOperations } from './operations/bookingV1/blockActionOperati
 import { bookingOperations } from './operations/bookingV1/bookingOperations';
 import { groupOperations } from './operations/bookingV1/groupOperations';
 import { offerOperations } from './operations/bookingV1/offerOperations';
+import { paymentAccountActionOperations } from './operations/bookingV1/paymentAccountActionOperations';
+import { paymentAccountOperations } from './operations/bookingV1/paymentAccountOperations';
 import { reservationOperations } from './operations/bookingV1/reservationOperations';
 import { reservationActionOperations } from './operations/bookingV1/reservationActionOperations';
 import { typesOperations } from './operations/bookingV1/typesOperations';
@@ -21,6 +23,8 @@ import { blockActionProperties } from './properties/bookingV1/blockActionPropert
 import { bookingProperties } from './properties/bookingV1/bookingProperties';
 import { groupProperties } from './properties/bookingV1/groupProperties';
 import { offerProperties } from './properties/bookingV1/offerProperties';
+import { paymentAccountActionProperties } from './properties/bookingV1/paymentAccountActionProperties';
+import { paymentAccountProperties } from './properties/bookingV1/paymentAccountProperties';
 import { reservationProperties } from './properties/bookingV1/reservationProperties';
 import { reservationActionProperties } from './properties/bookingV1/reservationActionProperties';
 import { typesProperties } from './properties/bookingV1/typesProperties';
@@ -85,6 +89,14 @@ class ApaleoApi implements INodeType {
 						value: 'offer',
 					},
 					{
+						name: 'Payment Account',
+						value: 'paymentAccount',
+					},
+					{
+						name: 'Payment Account Action',
+						value: 'paymentAccountAction',
+					},
+					{
 						name: 'Reservation',
 						value: 'reservation',
 					},
@@ -115,6 +127,8 @@ class ApaleoApi implements INodeType {
 			...bookingProperties,
 			...groupProperties,
 			...offerProperties,
+			...paymentAccountProperties,
+			...paymentAccountActionProperties,
 			...reservationProperties,
 			...reservationActionProperties,
 			...typesProperties,
@@ -154,6 +168,12 @@ class ApaleoApi implements INodeType {
 				}
 				if (resource === 'offer') {
 					await offerOperations.call(this, i, operation, accessToken, returnData);
+				}
+				if (resource === 'paymentAccount') {
+					await paymentAccountOperations.call(this, i, operation, accessToken, returnData);
+				}
+				if (resource === 'paymentAccountAction') {
+					await paymentAccountActionOperations.call(this, i, operation, accessToken, returnData);
 				}
 				if (resource === 'reservation') {
 					await reservationOperations.call(this, i, operation, accessToken, returnData);
