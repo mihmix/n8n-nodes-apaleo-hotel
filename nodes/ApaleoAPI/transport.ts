@@ -1,6 +1,28 @@
 import { IExecuteFunctions, IHttpRequestMethods } from 'n8n-workflow';
 import { getAccessToken } from './auth/getAccessToken';
 
+function formatApaleoQueryParams(qs: Record<string, any>): Record<string, any> {
+	const formatted: Record<string, any> = {};
+
+	for (const [key, value] of Object.entries(qs)) {
+		if (value === undefined || value === null) {
+			continue;
+		}
+
+		if (Array.isArray(value)) {
+			if (!value.length) {
+				continue;
+			}
+
+			formatted[key] = value.join(',');
+		} else {
+			formatted[key] = value;
+		}
+	}
+
+	return formatted;
+}
+
 export async function apiRequest(
 	this: IExecuteFunctions,
 	method: IHttpRequestMethods,
@@ -26,7 +48,7 @@ export async function apiRequest(
 	}
 
 	if (qs !== undefined) {
-		options.qs = qs;
+		options.qs = formatApaleoQueryParams(qs);
 	}
 
 	// Add idempotency key for POST requests
