@@ -69,7 +69,7 @@ export async function paymentAccountOperations(
 		case 'GET payment accounts':
 			endpoint = '/booking/v1/payment-accounts';
 			{
-				const additionalFields = this.getNodeParameter('additionalFields', index) as {
+				const additionalFields = this.getNodeParameter('additionalFields', index, {}) as {
 					paymentAccountIds?: string[];
 					propertyIds?: string[];
 					bookingIds?: string[];
