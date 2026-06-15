@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-apaleo-hotel",
-	"version": "0.0.21",
+	"version": "0.0.22",
 	"description": " custom n8n node for interacting with the Apaleo API",
 	"keywords": [
 		"n8n-community-node-package",
