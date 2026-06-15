@@ -56,7 +56,6 @@ export const paymentAccountProperties: INodeProperties[] = [
 			},
 		],
 		default: 'GET payment accounts',
-		required: true,
 	},
 	{
 		displayName: 'Payment Account ID',

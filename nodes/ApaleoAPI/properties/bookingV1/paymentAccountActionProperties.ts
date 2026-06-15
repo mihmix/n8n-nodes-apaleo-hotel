@@ -28,7 +28,6 @@ export const paymentAccountActionProperties: INodeProperties[] = [
 			},
 		],
 		default: 'PUT cancel payment account',
-		required: true,
 	},
 	{
 		displayName: 'Payment Account ID',

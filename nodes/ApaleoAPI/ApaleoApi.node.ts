@@ -32,6 +32,21 @@ import { typesProperties } from './properties/bookingV1/typesProperties';
 // Finance API Properties
 import { folioProperties } from './properties/financeV1/folioProperties';
 
+const RESOURCE_DEFAULT_OPERATIONS: Record<string, string> = {
+	block: 'GET blocks',
+	blockAction: 'PUT confirm Block',
+	booking: 'GET bookings',
+	group: 'GET groups',
+	offer: 'GET offers',
+	paymentAccount: 'GET payment accounts',
+	paymentAccountAction: 'PUT cancel payment account',
+	reservation: 'GET reservations',
+	reservationAction: 'PUT assign unit to reservation',
+	types: 'GET sources',
+	folio: 'GET folios',
+	folioAction: 'PUT move multiple charges',
+};
+
 class ApaleoApi implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Apaleo',
@@ -142,7 +157,11 @@ class ApaleoApi implements INodeType {
 		const items = this.getInputData();
 		const returnData: INodeExecutionData[] = [];
 		const resource = this.getNodeParameter('resource', 0) as string;
-		const operation = this.getNodeParameter('operation', 0) as string;
+		const operation = this.getNodeParameter(
+			'operation',
+			0,
+			RESOURCE_DEFAULT_OPERATIONS[resource],
+		) as string;
 		const credentials = await this.getCredentials('apaleoApi');
 		const accessToken = credentials.accessToken as string;
 
